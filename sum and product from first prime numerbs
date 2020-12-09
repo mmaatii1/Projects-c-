@@ -1,0 +1,54 @@
+class MainClass {
+    public static void Main(string[] args) {
+    
+    ///Ten program oblicza sume i iloczyn liczb pierwszych ktore mieszcza sie w przedziale 1<=N  i sa podzielne przez K 
+
+            Console.Write("Podaj liczbe n - przedzial do ktorego program ma szukac liczb pierwszych: ");
+
+            long userN = int.Parse(Console.ReadLine());
+
+            Console.Write("Podaj liczbe k przez ktora ma byc podzielna liczba naturalna aby mogla zostac dodana do sumy i wymnozona w iloczynie: ");
+
+            long userK = int.Parse(Console.ReadLine());
+
+            long suma = 0;
+            long iloczyn = 1;
+            long przedzial = userN;
+            long[] tablica = new long[userN + 1];
+
+            for (long i = 2; i <= userN; i++)
+            {
+                if (pierwsza(i))
+                {
+
+                    tablica[i] = i;
+
+                }
+
+            }
+            ///ta metoda sprawdza czy liczba jest pierwsza
+            bool pierwsza(long a)
+            {
+                for (long j = 2; j <= (a / 2); j++)
+                    if (a % j == 0)
+                        return false;
+                return true;
+            }
+
+            for (int i = 0; i <= userN; i++)
+            {
+                if (tablica[i] % userK == 0)
+                {
+                    suma += tablica[i];
+                    if (tablica[i] != 0)
+                    {
+                        checked
+                        {
+                            iloczyn *= tablica[i];
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("Suma liczb pierwszych z przedziału 1 - {0} ktore sa podzielne przez {1} = {2}", przedzial, userK, suma);
+            Console.WriteLine("Iloczyn liczb z przedziału 1 - {0} ktore sa podzielne przez {1} = {2}", przedzial, userK, checked(iloczyn));
+            Console.ReadKey();
