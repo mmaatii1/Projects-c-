@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace odworcenie_ciagu_tekstowego
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string userA = Console.ReadLine();
+            odwroc(userA);
+            Console.ReadKey();
+        }
+
+        private static void odwroc(string userA)
+        {
+            char[] words = userA.ToCharArray();
+            int strlen = userA.Length;
+            int a = 0;
+            string tekst = "";
+
+            for (int i = strlen - 1; i >= a; i--)
+            {
+                tekst = tekst + words[i];
+            }
+
+            Console.WriteLine(tekst);
+        }
+    }
+}
