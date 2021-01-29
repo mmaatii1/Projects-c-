@@ -1,0 +1,92 @@
+Zadanie 1/13/QE
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Zadanie_QE
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Podaj wzrost:");
+            try
+            {
+                double wzrost = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Podaj wagę:");
+                double waga = Convert.ToDouble(Console.ReadLine());
+                Obliczeniebmi(wzrost, waga);
+
+                Console.WriteLine("Bmi dla wagi, {0}kg i wzrostu {1}cm to {2}", waga, wzrost, Obliczeniebmi(wzrost, waga));
+                Console.ReadKey();
+            }
+            catch (System.FormatException)
+            {
+                Console.WriteLine("zla wprowadzona wartosc");
+                Console.ReadKey();
+            }
+        }
+
+        static double Obliczeniebmi(double wzrost, double waga)
+        {
+            double bmi;
+            bmi = waga/(Math.Pow(wzrost,2));
+            return bmi;
+        }
+
+    }
+}
+
+
+
+
+Zadanie 2/13/AU
+
+using System;
+using System.Collections.Generic;
+
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Zadanie_AU
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Podaj wartość:");
+           string zdanie = Console.ReadLine();
+            char[] zdaniechar = new char[zdanie.Length];
+            for(int i = 0; i<zdanie.Length; i++)
+            {
+                zdaniechar[i] = zdanie[i];
+            }
+            string znaki = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890ĄąęĘćĆżŻźŹ";
+            char[] znakichar = new char[znaki.Length];
+            for (int i = 0; i < znaki.Length; i++)
+            {
+                znakichar[i] = znaki[i];
+            }
+            int liczba = 0;
+          
+           foreach(char element in znakichar)
+            {
+                foreach(char litercyfra in zdaniechar)
+                {
+                    if(litercyfra == element)
+                    {
+                        liczba++;
+                    }
+                }
+            }
+            Console.WriteLine(liczba);
+            Console.ReadKey();
+        }  
+    }
+}
+
+
+//zadanie 3
